@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<body>
+
+    <head>
+        <style>
+            body {
+                background-color: lightblue;
+                color: white;
+                border: 3px solid black;
+                padding: 15px;
+                border-radius: 15px;
+                line-height: 2em;
+            }
+        </style>
+    </head>
+
+    <form method="get" action="2.html" target="_blank" id="f1">
+        <label for="fname">First Name:</label>
+        <input id="fname" type="text">
+        <span id="r1"></span> <br>
+
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname">
+        <span id="r2"></span><br>
+
+        <label for="pnum">Phone Number:</label>
+        <input type="text" id="pnum">
+        <span id="r3"></span> <br>
+
+        <label for="prod1">Enter the amount of Product 1:</label>
+        <input type="number" id="prod1">
+        <span id="r4"></span> <br>
+
+        <label for="prod2">Enter the amount of Product 2:</label>
+        <input type="number" id="prod2">
+        <span id="r5"></span> <br>
+
+        <label for="prod3">Enter the amount of Product 3:</label>
+        <input type="number" id="prod3">
+        <span id="r6"></span> <br>
+
+        <button onclick="addition()">Calculate</button>
+        <P>The total is:</P>
+        <p id="result">Please press the calculate button</p>
+        <hr>
+        <p>Total with tax is:</p>
+        <p id="tax">Please press the calculate button</p>
+    </form>
+    <script>
+
+
+        function addition() {
+            var fname = document.getElementById("fname").value
+            var lname = document.getElementById("lname").value
+            var pnum = document.getElementById("pnum").value
+            var isvalid = true
+            if (fname == "") {
+                document.getElementById("r1").innerHTML = "Firstname is required";
+                isvalid = false;
+
+            }
+            if (lname == "") {
+                document.getElementById("r2").innerHTML = "Lastname is required";
+                isvalid = false;
+
+            }
+            if (fname == "") {
+                document.getElementById("r3").innerHTML = " Valid Phonenumber is required";
+                isvalid = false;
+
+            }
+            if (fname == "") {
+                document.getElementById("r4").innerHTML = "Price of Product 1 is required";
+                isvalid = false;
+
+            }
+            if (fname == "") {
+                document.getElementById("r5").innerHTML = "Price os Product 2 is required";
+                isvalid = false;
+
+            }
+            if (fname == "") {
+                document.getElementById("r6").innerHTML = "Price of Product 3 is required";
+                isvalid = false;
+
+            }
+            if (isvalid == "true") {
+                document.getElementById("f1").submit()
+
+            }
+
+            var prod1 = document.getElementById("prod1").value
+            var x1 = parseInt(prod1)
+
+            var prod2 = document.getElementById("prod2").value
+            var x2 = parseInt(prod2)
+
+            var prod3 = document.getElementById("prod3").value
+            var x3 = parseInt(prod3)
+
+            var rel = x1 + x2 + x3
+            var tax = rel + (rel * 0.13)
+
+            document.getElementById("result").innerHTML = rel
+            document.getElementById("tax").innerHTML = tax
+        }
+    </script>
+</body>
